@@ -1,11 +1,8 @@
-// eslint-disable-next-line
-require("dotenv").config()
-import express from "express"
+import app from './app'
 
-const app = express()
-const port = 3000
-app.get("/", (_, res) => res.send("Hello World"))
+const port = 3000;
 
 app.listen(port, () => {
-  console.log(`Application running on port ${port}.`)
+    console.log(`APP IS RUNNING ON PORT: ${port}.`)
 })
+

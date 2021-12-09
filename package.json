@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon app.ts",
-    "start": "tsc --build && node dist/app.js",
-    "start:clean": "rm -rf dist && tsc --build && node dist/app.js",
+    "dev": "SET NODE_ENV=development &&  nodemon index.ts",
+    "start": "tsc --build && node dist/index.js",
+    "start:clean": "rm -rf dist && tsc --build && node dist/index.js",
     "format": "prettier . --write",
     "lint": "eslint . --fix --ext .ts,.js --max-warnings 0",
     "type-check": "tsc -p .",
@@ -35,6 +35,7 @@
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
     "graphql": "^16.1.0",
+    "graphql-modules": "^2.0.0",
     "graphql-upload": "^13.0.0"
   }
 }
