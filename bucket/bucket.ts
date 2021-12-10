@@ -1,6 +1,8 @@
 import { GetObjectOutput } from "@aws-sdk/client-s3";
-import { getS3Bucket } from "./s3Bucket";
 import { Duration } from 'luxon'
+
+import { getS3Bucket } from "./s3Bucket";
+import { getLocalBucket } from './localBucket'
 
 
 export const SIGNED_URL_EXIPRES = Duration.fromObject({minutes : 10})
@@ -20,7 +22,7 @@ const bucketId = process.env.AWS_BUCKET_NAME;
 
 export function getBucket(): FileBucket {
     if (process.env.NODE_ENV === 'development') {
-        return {} as FileBucket
+        return getLocalBucket()
     } else if (bucketId) {
         return getS3Bucket(bucketId)
     } else {
